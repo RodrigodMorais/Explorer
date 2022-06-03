@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --font-primary: 'Staatliches', cursive;
+  --font-secundary: 'Palanquin', sans-serif;
+
+  --bg-header: hsla(218, 17%, 62%, 1);
+  --bg-body: hsla(233, 100%, 97%, 1);
+  --bg-h1: hsla(275, 18%, 79%, 1);
+  --bg-h2: hsla(312, 91%, 96%, 1);
+
+  --font-color01: hsla(0, 0%, 100%, 1);
+  --font-color02: hsla(232, 17%, 35%, 1);
+}
+
+body {
+  max-width: 40rem;
+  height: auto;
+
+  margin: 0 auto;
+
+  background-color: var(--bg-body);
+
+  font-family: var(--font-secundary);
+}
+
+header {
+  background-color: var(--bg-header);
+
+  text-align: center;
+
+  padding-bottom: 3.6rem;
+}
+
+header>img {
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+header>h1 {
+  background-color: var(--bg-h1);
+
+  font-family: var(--font-primary);
+  font-size: 4rem;
+  font-weight: normal;
+  line-height: 3.4rem;
+  letter-spacing: 0.05rem;
+  color: var(--font-color01);
+
+  padding: 0.8rem 8.6rem;
+}
+
+header>p {
+  display: none;
+}
+
+main {
+  padding: 2rem 3.2rem 6rem;
+}
+
+main>p {
+  font-size: 2rem;
+  line-height: 1.5rem;
+
+  text-align: center;
+
+  padding-bottom: 3rem;
+}
+
+main section h2 {
+  width: 11.2rem;
+  height: 3.5rem;
+
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  line-height: 3.4rem;
+  font-weight: normal;
+  letter-spacing: 0.05rem;
+  color: var(--font-color02);
+
+  text-align: center;
+
+  background-color: var(--bg-h2);
+
+  border-radius: 2rem;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  animation: topdown 700ms;
+}
+
+.wrapper-card {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.card {
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+
+  transition: transform 200ms;
+
+  animation: downtop 700ms;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  display: none;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 400px) {
+  body {
+    max-width: 900px;
+    height: auto;
+  }
+
+  .wrapper-card {
+    grid-template-areas:
+      "area-1 area-2"
+      "area-4 area-2"
+      "area-4 area-5"
+      "area-6 area-3";
+  }
+
+  .wrapper-card div:nth-child(1) {
+    grid-area: area-1;
+  }
+
+  .wrapper-card div:nth-child(2) {
+    grid-area: area-2;
+  }
+
+  .wrapper-card div:nth-child(3) {
+    grid-area: area-3;
+  }
+
+  .wrapper-card div:nth-child(4) {
+    grid-area: area-4;
+  }
+
+  .wrapper-card div:nth-child(5) {
+    grid-area: area-5;
+  }
+
+  .wrapper-card div:nth-child(6) {
+    grid-area: area-6;
+  }
+
+  footer {
+    margin-top: 5rem;
+
+    display: grid;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+
+    text-align: center;
+  }
+
+  footer p span {
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+  }
+
+  header {
+    width: 37.7rem;
+    height: auto;
+  }
+
+  header>p {
+    display: grid;
+    font-size: 2rem;
+    color: var(--font-color01);
+    line-height: 1.5rem;
+
+    text-align: center;
+
+    margin: 5rem 4rem;
+  }
+
+  header>h1 {
+    width: 37.7rem;
+    font-size: 4.8rem;
+    padding: 2rem 7.4rem;
+  }
+
+  .wrapper-card {
+    grid-template-areas:
+      "area-1 area-2 area-3"
+      "area-4 area-2 area-6"
+      "area-4 area-5 area-6";
+
+    padding-top: 6.4rem;
+    padding-left: 9.8rem;
+  }
+
+  .wrapper-card div:nth-child(1) {
+    grid-area: area-1;
+  }
+
+  .wrapper-card div:nth-child(2) {
+    grid-area: area-2;
+  }
+
+  .wrapper-card div:nth-child(3) {
+    grid-area: area-3;
+  }
+
+  .wrapper-card div:nth-child(4) {
+    grid-area: area-4;
+  }
+
+  .wrapper-card div:nth-child(5) {
+    grid-area: area-5;
+  }
+
+  .wrapper-card div:nth-child(6) {
+    grid-area: area-6;
+  }
+
+  main>p {
+    display: none;
+  }
+
+  main section h2 {
+    display: none;
+  }
+}
